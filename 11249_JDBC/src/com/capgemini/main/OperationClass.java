@@ -20,22 +20,16 @@ public class OperationClass {
 			String StudentCourse = sc.next();
 			System.out.println("Enter student Batch:");
 			int StudentBatch = sc.nextInt();
+			if(con==null) {
+				con = conObject.getConnection();
+			}
 			
-				
-//			String countStatus = "select max(idstudent) from student";
-//			PreparedStatement psmt1 = con.prepareStatement(countStatus);
-//			ResultSet rs = psmt1.executeQuery();
-//			if(rs.next()) {
-//				count = rs.getInt(1);
-//			}
 			
 			String query = "insert into student values(?,?,?,?,?)";
-			con = conObject.getConnection();
-
 			
 			
 			PreparedStatement psmt2 = con.prepareStatement(query);
-			int count=0;
+			count+=1;
 			psmt2.setInt(1, count);
 			psmt2.setString(2, StudentUID);
 			psmt2.setString(3, StudentName);
@@ -49,7 +43,7 @@ public class OperationClass {
 			else {
 				System.out.println("Record not inserted");
 			}
-//			psmt1.close();
+//			
 			psmt2.close();
 			con.close();
 		}
