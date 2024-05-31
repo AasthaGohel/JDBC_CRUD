@@ -8,7 +8,7 @@ public class ConnectionClass {
 	public Connection getConnection() throws SQLException, ClassNotFoundException {
 		Connection con = null;
 		Class.forName("com.mysql.cj.jdbc.Driver");
-		con=DriverManager.getConnection("jdbc:mysql://localhost:3306/cuims","root","Aastha@3009");
+		con=DriverManager.getConnection("jdbc:mysql://localhost:3306/",username,password);
 		
 		System.out.println("Connection Established");
 		
